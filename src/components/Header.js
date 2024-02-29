@@ -1,11 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import logo from '../Images/logo.png'
 //import userIcon from '../Images/userIcon.png'
 
 import { useState } from 'react'
-import { getAuth, signOut } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { auth } from '../utils/Firebase'
+import { addUser, removeUser } from '../utils/userSlice'
+
 const Header = () => {
 
   const user = useSelector((store)=> store.user);
@@ -14,7 +17,6 @@ const Header = () => {
     const auth = getAuth();
       signOut(auth).then(() => {
         // Sign-out successful.
-        navigate('/')
       }).catch((error) => {
         // An error happened.
         return <h1>Error!</h1>
@@ -24,11 +26,28 @@ const Header = () => {
   const menuRef = useRef();
   const imgRef = useRef();
   const Menus = ['User', 'About us', ];
-
+  const dispatch = useDispatch();  
   window.addEventListener('click', (e)=>{
     if (e.target !== menuRef.current && e.target !== imgRef.current){
       setHandleUserClick(false);
     }})
+  
+  useEffect(()=>{
+      onAuthStateChanged(auth, (user) => {
+          if (user) {
+              // User is signed in, see docs for a list of available properties
+              // https://firebase.google.com/docs/reference/js/auth.user
+              const {uid, email, displayName, photoURL} = user;
+              dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
+              navigate('/browse')
+              // ...
+          } else {
+              // User is signed out
+              dispatch(removeUser());
+              navigate('/');
+          }
+       });
+  },[])  
   return (
     <div className='absolute px-8 py-2 w-screen  bg-gradient-to-b from-black  z-10 flex justify-between '>
         <img src={logo} alt="logo" className='w-64 h-24'/>

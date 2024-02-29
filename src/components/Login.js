@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import background from '../Images/background.jpg'
 import { checkValidEmail, checkValidPassword, /*checkValidName*/} from '../utils/Validate'
@@ -13,7 +12,7 @@ const Login = () => {
   const [errorMessagePassword,setErrorMessagePassword] = useState(null);
  // const [errorMessageName,setErrorMessageName] = useState(null);
  const dispatch = useDispatch(); 
-  const navigate = useNavigate();
+  
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
@@ -50,12 +49,10 @@ const Login = () => {
             displayName: displayName, 
             photoURL: photoURL
            }));
-          navigate('/browse')
         }).catch((error) => {
           setErrorMessageEmail(error.message);
         });
         console.log(user);
-        navigate('/browse');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -72,7 +69,6 @@ const Login = () => {
         // Signed in 
         const user = userCredential.user;
         console.log(user);
-        navigate('/browse');
       })
       .catch((error) => {
         const errorCode = error.code;

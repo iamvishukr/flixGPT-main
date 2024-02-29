@@ -13,7 +13,9 @@
 12. implemented sign in user API
 13. created redux store with userSlice
 14. implemented sign out feature
-15. Update profile 
+15. Update profile
+16. BugFix: Sign up user displayName and Profile picture update.
+17. BugFix: if the user is not signed in Redirect /browse to sign in page and vice-versa.
 
 
 #Features
