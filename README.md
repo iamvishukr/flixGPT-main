@@ -16,8 +16,8 @@
 15. Update profile
 16. BugFix: Sign up user displayName and Profile picture update.
 17. BugFix: if the user is not signed in Redirect /browse to sign in page and vice-versa.
-
-
+18. unsubscribed to the onAuthStateChanged callback
+19. Added hardcoded values to the Constant.js file.
 #Features
 -LogIn/SignUp
     -SignIn/SignUp (Form)

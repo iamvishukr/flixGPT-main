@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword,updateProfil
 import { auth } from '../utils/Firebase';
 import { useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice'
+import { USER_AVATAR } from '../utils/Constants';
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessageEmail,setErrorMessageEmail] = useState(null);
@@ -38,7 +39,7 @@ const Login = () => {
         const user = userCredential.user;
         updateProfile(user, {
           displayName: name.current.value, 
-          photoURL: "https://avatars.githubusercontent.com/u/140156661?s=400&u=7e9767c76661f60394910af692b50e110d15502f&v=4"
+          photoURL: USER_AVATAR,
         }).then(() => {
           // Profile updated!
           const {uid, email, displayName, photoURL} = auth.currentUser;
@@ -52,7 +53,7 @@ const Login = () => {
         }).catch((error) => {
           setErrorMessageEmail(error.message);
         });
-        console.log(user);
+        //console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
