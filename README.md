@@ -18,6 +18,10 @@
 17. BugFix: if the user is not signed in Redirect /browse to sign in page and vice-versa.
 18. unsubscribed to the onAuthStateChanged callback
 19. Added hardcoded values to the Constant.js file.
+20. Registered for TMDB API and got access token.
+21. get data from TMDB now playing movies list API and made API call on our browse page.
+22. built a custom hook for fetch data from TMDB API and update store.
+
 #Features
 -LogIn/SignUp
     -SignIn/SignUp (Form)
