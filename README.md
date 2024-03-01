@@ -19,9 +19,16 @@
 18. unsubscribed to the onAuthStateChanged callback
 19. Added hardcoded values to the Constant.js file.
 20. Registered for TMDB API and got access token.
-21. get data from TMDB now playing movies list API and made API call on our browse page.
-22. built a custom hook for fetch data from TMDB API and update store.
-
+21. Get data from TMDB now playing movies list API and made API call on our browse page.
+22. Built a custom hook for fetch data from TMDB API and update store.
+23. Custom hook for Now playing movies
+24. Create movieSlice
+25. Update store with movies data
+26. Planning for mainContainer and secondaryContainer
+27. Fetch data for trailer video
+28. Update store with Trailer video data
+29. Embedded the youtube video and made it autoplay and mute
+30. Added tailwind classes to make mainContainer look awesome.
 #Features
 -LogIn/SignUp
     -SignIn/SignUp (Form)
