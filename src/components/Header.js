@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import logo from '../Images/logo.png'
 //import userIcon from '../Images/userIcon.png'
-
+import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
@@ -57,10 +57,11 @@ const Header = () => {
        return () => unsubscirbe 
   },[])  
   return (
-    <div className='absolute px-8 py-0 w-screen bg-gradient-to-b from-black z-10  flex justify-between '>
+    <div className=' px-8 py-0 w-screen bg-gradient-to-b from-black absolute bg-transparent z-50 flex justify-between '>
         <img src={logo} alt="logo" className='w-64 h-24'/>
 
-        {user && <div className='h-12 w-12 mt-6 mr-12'>
+        {user && <div className='h-12 w-12 mt-6 mr-52 flex'>
+            <button className='px-4 text-lg mx-10 rounded-2xl hover:bg-red-700  bg-red-600 text-white flex items-center'><SearchIcon/> GPT</button>
             <img ref={imgRef} src={user.photoURL}  className='rounded-sm shadow-lg' alt="user" onClick={()=>setHandleUserClick(!handleUserClick)} />
             
            { handleUserClick &&  <div className='bg-black bg-opacity-70 border-2 border-gray-600 rounded-md text-white w-32 h-fit -translate-x-10 mt-2 text-center font-semibold p-2 shadow-lg '>

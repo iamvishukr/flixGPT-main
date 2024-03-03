@@ -11,7 +11,6 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessageEmail,setErrorMessageEmail] = useState(null);
   const [errorMessagePassword,setErrorMessagePassword] = useState(null);
- // const [errorMessageName,setErrorMessageName] = useState(null);
  const dispatch = useDispatch(); 
   
   const email = useRef(null);
@@ -21,13 +20,9 @@ const Login = () => {
   const handleButtonClick =()=>{
     const messageEmail = checkValidEmail(email.current.value);
     const messagePassword = checkValidPassword(password.current.value);
-  // const messageName = checkValidName(name.current.value);
     setErrorMessageEmail(messageEmail);
     setErrorMessagePassword(messagePassword);
-  // setErrorMessageName(messageName);
-    //console.log(email);
-    //console.log(password);
-    //console.log(name);
+  
 
     //sign in sign up logic-----------------------------------------------------------------------
     if(messageEmail || messagePassword) return;
@@ -53,13 +48,12 @@ const Login = () => {
         }).catch((error) => {
           setErrorMessageEmail(error.message);
         });
-        //console.log(user);
+       
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setErrorMessageEmail(errorMessage+'-'+ errorCode)
-        // ..
       });
 
     }
@@ -68,8 +62,7 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
         // Signed in 
-        const user = userCredential.user;
-       // console.log(user);
+        //const user = userCredential.user;
       })
       .catch((error) => {
         const errorCode = error.code;

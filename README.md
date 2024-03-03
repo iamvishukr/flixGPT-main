@@ -35,7 +35,7 @@
 34. TMDB Image cdn url
 35. Made the browse page amazing with tailwind css
 36. usePopularMovies, useTopratedMovies, useUpcomingMovies custom hooks
-
+37. GPT search feature
 #Features
 -LogIn/SignUp
     -SignIn/SignUp (Form)
