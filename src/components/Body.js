@@ -1,6 +1,5 @@
 import Login from './Login';
 import Browse from './Browse';
-import Profile from './Profile';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Aboutus from './Aboutus';
 
@@ -13,10 +12,6 @@ const Body = () => {
         {
             path: '/browse',
             element: <Browse/>
-        },
-        {
-            path: '/profile',
-            element: <Profile/>
         },
         {
             path: '/about',

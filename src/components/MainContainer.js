@@ -11,7 +11,7 @@ const MainContainer = () => {
     //console.log(mainMovie);
   return (
 
-    <div>
+    <div className='-mt-28'>
         <VideoTitle title={original_title} overview={overview}/>
         <VideoBackground movieId={id} />
     </div>

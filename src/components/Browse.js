@@ -5,7 +5,10 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePoupularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpComingMovies";
+import SearchGPT from "./SearchGPT";
+import { useSelector } from "react-redux";
 const Browse = () => {
+  const showSearchGPT = useSelector((store) => store.gpt.showSearchGPT);
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
@@ -13,12 +16,15 @@ const Browse = () => {
   useUpcomingMovies();
   return (
     <div>
-      
-      <div className="bg-white">
-        <Header />  
-      </div>
-        <MainContainer />
-      <SecondaryContainer />
+      <Header />
+      {showSearchGPT ? (
+        <SearchGPT />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };
