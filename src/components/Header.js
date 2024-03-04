@@ -85,9 +85,9 @@ const Header = () => {
           >
             <SearchIcon /> GPT
           </button>
-          <select className="h-12 rounded-2xl mr-16 px-2 bg-red-600 text-white " onChange={handleLanguageChange}>
+          <select className="h-12 rounded-2xl  mr-16 px-2 bg-red-600 text-white " onChange={handleLanguageChange}>
             {SUPPORTED_LANG.map((lang) => (
-              <option key={lang.identifier} value={lang.name}>
+              <option className="bg-black bg-opacity-90 border-gray-600   text-white" key={lang.identifier} value={lang.name}>
                 {lang.name}
               </option>
             ))}
