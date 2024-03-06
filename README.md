@@ -36,6 +36,9 @@
 35. Made the browse page amazing with tailwind css
 36. usePopularMovies, useTopratedMovies, useUpcomingMovies custom hooks
 37. GPT search feature
+38. GPT search page
+39. GPT search bar
+40. Multi-language feature in out app
 #Features
 -LogIn/SignUp
     -SignIn/SignUp (Form)

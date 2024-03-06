@@ -47,7 +47,7 @@ const Header = () => {
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
-
+  const showSearchGpt = useSelector((store) =>store.gpt.showSearchGPT);
   useEffect(() => {
     const unsubscirbe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -74,24 +74,25 @@ const Header = () => {
     return () => unsubscirbe;
   }, []);
   return (
-    <div className=" px-8 py-0 w-screen bg-gradient-to-b mt-24 from-black absolute bg-transparent z-50 flex justify-between ">
+    <div className=" px-8 py-0 w-screen bg-gradient-to-b mt-24 pt-6 from-black absolute bg-transparent z-50 flex justify-between ">
       <img src={logo} alt="logo" className="w-64 h-24" />
 
       {user && (
-        <div className="h-12 w-12 mt-6 mr-96 flex ">
-          <button
-            className="px-4 text-lg mx-10 rounded-2xl hover:bg-red-700  bg-red-600 text-white flex items-center"
-            onClick={handleSearchGPTclick}
-          >
-            <SearchIcon /> GPT
-          </button>
-          <select className="h-12 rounded-2xl  mr-16 px-2 bg-red-600 text-white " onChange={handleLanguageChange}>
+        <div className="h-12 w-96 mt-6 mr-96 flex translate-x-96">
+           {showSearchGpt && <select className="h-12 rounded-lg translate-x-10 mr-16 px-2 bg-red-600 text-white " onChange={handleLanguageChange}>
             {SUPPORTED_LANG.map((lang) => (
               <option className="bg-black bg-opacity-90 border-gray-600   text-white" key={lang.identifier} value={lang.name}>
                 {lang.name}
               </option>
             ))}
-          </select>
+          </select>}
+          <button
+            className="px-4 text-lg mx-10  rounded-lg hover:bg-red-700  bg-red-600 text-white flex items-center"
+            onClick={handleSearchGPTclick}
+          >
+            <SearchIcon />{!showSearchGpt ? "GPT" : "Home"}
+          </button>
+         
           <img
             ref={imgRef}
             src={user.photoURL}

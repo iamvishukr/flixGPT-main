@@ -5,7 +5,7 @@ import background from "../Images/background.jpg";
 const SearchGPT = () => {
   return (
     <div className="-mt-28">
-      <div className="absolute -z-10 ">
+      <div className="fixed -z-10 ">
         <img src={background} alt="" />
       </div>
       <SearchBarGPT />
