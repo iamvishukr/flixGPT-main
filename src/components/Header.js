@@ -74,7 +74,7 @@ const Header = () => {
     return () => unsubscirbe;
   }, []);
   return (
-    <div className=" px-8 py-0 w-screen bg-gradient-to-b mt-24 pt-6 from-black absolute bg-transparent z-50 flex justify-between ">
+    <div className=" px-8 py-0 w-screen bg-gradient-to-b mt-24 pt-6 from-black absolute bg-transparent z-50 flex justify-between">
       <img src={logo} alt="logo" className="w-64 h-24" />
 
       {user && (
