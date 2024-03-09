@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const useUpcomingMovies =() => {
 //fetch data from TMDB API and update store
-const upComingMovies = useSelector((store)=> store.movies.upcomingMovies);
+const upComingMovies = useSelector((store)=> store.movies.upComingMovies);
     const dispatch = useDispatch();
     const getUpcomingMovies = async () =>{
       const data = await fetch(
@@ -19,7 +19,7 @@ const upComingMovies = useSelector((store)=> store.movies.upcomingMovies);
     };
   
     useEffect(() =>{
-     upComingMovies && getUpcomingMovies();
+     !upComingMovies && getUpcomingMovies();
     },[]);
 };
 

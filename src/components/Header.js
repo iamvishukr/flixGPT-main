@@ -73,12 +73,14 @@ const Header = () => {
     // unsubscribe when component unmounts
     return () => unsubscirbe;
   }, []);
+
+  
   return (
     <div className=" md:px-8 md:mx-2 mx-0 w-screen bg-gradient-to-b md:mt-24 mt-5 pt-3 from-black absolute bg-transparent z-50 flex flex-col md:flex-row justify-between">
       <img src={logo} alt="logo" className="md:w-64 md:h-24 w-24 -translate-y-2 h-12" />
 
       {user && (
-        <div className="md:h-12 md:w-96 h-6 w-6 md:mt-6 mt-0 -translate-y-11 md:-translate-y-2  md:mr-96  flex md:translate-x-[490px] translate-x-[280px] gap-4 ">
+        <div className="md:h-12 md:w-fit  md:absolute h-6 w-6 md:mt-6 mt-0 -translate-y-11 md:-translate-y-2  md:mr-96  flex  md:translate-x-[1180px] translate-x-[280px] gap-4 ">
            {showSearchGpt && <select className="h-12 rounded-lg md:translate-x-10  md:mr-16 mr-0 px-2 bg-red-600 text-white " onChange={handleLanguageChange}>
             {SUPPORTED_LANG.map((lang) => (
               <option className="bg-black bg-opacity-90 border-gray-600   text-white" key={lang.identifier} value={lang.name}>
@@ -96,20 +98,20 @@ const Header = () => {
           <img
             ref={imgRef}
             src={user.photoURL}
-            className="rounded-sm shadow-lg"
+            className="rounded-sm shadow-lg "
             alt="user"
             onClick={() => setHandleUserClick(!handleUserClick)}
           />
 
           {handleUserClick && (
-            <div className="bg-black bg-opacity-90 border-2 border-gray-600 rounded-md text-white md:w-32 w-[70px] h-fit -translate-x-[74px]  md:-translate-x-[90px] md:mt-16 mt-8 text-center font-semibold md:p-2 p-1 shadow-lg ">
-              <ul ref={menuRef} className="mr-2 w-full ">
-                <p className="text-purple-500 text-xs md:text-lg font-semibold hover:text-red-600 hover:font-bold cursor-default my-1">
+            <div className="bg-black bg-opacity-90 border-2  md:translate-y-16  border-gray-600 rounded-md text-white md:w-fit w-[70px] h-fit -translate-x-[60px]  md:h-fit  md:-translate-x-[114px] md:mt-0 mt-8 text-center font-semibold md:p-2 p-0 shadow-lg ">
+              <ul ref={menuRef} className="mr-2  w-full ">
+                <p className="text-purple-500  text-xs md:text-lg font-semibold hover:text-red-600 hover:font-bold cursor-default my-1">
                   {usernameUpper} 
                 </p>
                 {Menus.map((menu) => (
                   <li
-                    className="my-0 md:w-28 h-fit w-fit text-xs md:text-lg p-2 hover:bg-red-600 border border-gray-600 cursor-pointer rounded-md"
+                    className="my-0 md:w-28 h-fit w-fit text-xs md:text-lg md:p-2 px-1 hover:bg-red-600 border border-gray-600 cursor-pointer rounded-md"
                     onClick={() => setHandleUserClick(false)}
                     key={menu}
                   >
@@ -118,9 +120,9 @@ const Header = () => {
                 ))}
                 <button
                   onClick={handleSignOut}
-                  className="my-2 md:w-28 w-fit p-2 text-xs md:text-lg hover:bg-red-600 border border-gray-600 cursor-pointer rounded-md"
+                  className="my-2 md:w-28 w-fit md:p-2 px-1 text-xs md:text-lg hover:bg-red-600 border border-gray-600 cursor-pointer rounded-md"
                 >
-                  Sign out
+                  Sign Out
                 </button>
               </ul>
             </div>
