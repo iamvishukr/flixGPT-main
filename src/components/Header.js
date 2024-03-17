@@ -80,10 +80,10 @@ const Header = () => {
       <img src={logo} alt="logo" className="md:w-64 md:h-24 w-24 -translate-y-2 h-12" />
 
       {user && (
-        <div className="md:h-12 md:w-fit  md:absolute h-6 w-6 md:mt-6 mt-0 -translate-y-11 md:-translate-y-2  md:mr-96  flex  md:translate-x-[1180px] translate-x-[280px] gap-4 ">
-           {showSearchGpt && <select className="h-12 rounded-lg md:translate-x-10  md:mr-16 mr-0 px-2 bg-red-600 text-white " onChange={handleLanguageChange}>
+        <div className="md:h-12 md:w-fit   md:absolute h-6 w-6 md:mt-6 mt-0 -translate-y-11 md:-translate-y-2  md:mr-96  flex   md:translate-x-[1000px] translate-x-[280px] gap-4 ">
+           {showSearchGpt && <select className=" md:h-12 h-6 rounded-lg md:translate-x-16  md:mr-16 mr-0 md:px-2 px-0 md:text-lg text-xs bg-red-600 text-white " onChange={handleLanguageChange}>
             {SUPPORTED_LANG.map((lang) => (
-              <option className="bg-black bg-opacity-90 border-gray-600   text-white" key={lang.identifier} value={lang.name}>
+              <option className="bg-black max-h-2 size-1 text-sm md:text-lg bg-opacity-90 border-gray-600   text-white" key={lang.identifier} value={lang.name}>
                 {lang.name}
               </option>
             ))}
@@ -92,7 +92,7 @@ const Header = () => {
             className="md:px-4 md:text-lg md:mx-10 px-1 text-xs  rounded-lg hover:bg-red-700  bg-red-600 text-white flex items-center"
             onClick={handleSearchGPTclick}
           >
-            <SearchIcon />{!showSearchGpt ? "GPT" : "Home"}
+            <SearchIcon fontSize="small" />{!showSearchGpt ? "GPT" : "Home"}
           </button>
          
           <img

@@ -43,25 +43,27 @@ const SearchBarGPT = () => {
     dispatch(addGptMoviesResult({movieNames:gptMovies, movieResults:tmdbResults}));       
   };
   return (
-    <div className="pt-[14%]  -translate-x-14 flex justify-center ">
+    <div className="h-full w-full">
+    <div className="md:pt-[14%] pt-[50%]  md:-translate-x-14 -translate-x-2 items-center flex justify-center ">
       <form
-        className="w-1/2 bg-black bg-opacity-70 grid grid-cols-12 rounded-2xl"
+        className="md:w-1/2 p-1 w-10/12 h-fit bg-black bg-opacity-70 grid grid-cols-12 rounded-2xl"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
           type="text"
           placeholder={lang[langKey]?.gptSearchPlaceHolder}
-          className="p-4 px-8 m-4 col-span-10 text-xl font-sans rounded-2xl"
+          className="md:p-4 p-1 md:px-8 px-4 md:m-4 m-2 md:col-span-10 col-span-9 md:text-xl text-xs font-sans rounded-2xl"
         />
         <button
-          className="col-span-2 text-center ml-0 pl-2 text-lg m-4 hover:bg-red-700 rounded-2xl bg-red-600 text-white flex items-center"
-          onClick={handleGptSearchClick}
+          className="md:col-span-2 px-1 col-span-3 text-center ml-0 pl-2  h-2/3 md:text-lg text-xs w-full md:w-3/4 md:m-2 md:translate-y-2  m-2 hover:bg-red-700 rounded-2xl bg-red-600 text-white"
+          onClick={handleGptSearchClick} 
         >
-          <SearchIcon />
+           <SearchIcon fontSize="small" />
           &nbsp;{lang[langKey]?.search}
         </button>
       </form>
+    </div>
     </div>
   );
 };
