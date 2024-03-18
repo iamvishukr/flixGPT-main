@@ -43,8 +43,7 @@ const SearchBarGPT = () => {
     dispatch(addGptMoviesResult({movieNames:gptMovies, movieResults:tmdbResults}));       
   };
   return (
-    <div className="h-full w-full">
-    <div className="md:pt-[14%] pt-[50%]  md:-translate-x-14 -translate-x-2 items-center flex justify-center ">
+    <div className="md:pt-[14%] pt-[25%] md:-translate-x-14 -translate-x-2 items-center flex justify-center ">
       <form
         className="md:w-1/2 p-1 w-10/12 h-fit bg-black bg-opacity-70 grid grid-cols-12 rounded-2xl"
         onSubmit={(e) => e.preventDefault()}
@@ -63,7 +62,6 @@ const SearchBarGPT = () => {
           &nbsp;{lang[langKey]?.search}
         </button>
       </form>
-    </div>
     </div>
   );
 };
