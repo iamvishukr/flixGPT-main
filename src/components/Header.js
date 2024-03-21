@@ -35,7 +35,9 @@ const Header = () => {
   const usernameUpper = userName?.toUpperCase();
   const handleSearchGPTclick = () => {
     dispatch(toggleSearchGPTview());
-    document.getElementById('new').style.display = 'none';
+    
+      document.getElementById('new').style.display = 'none';
+
   };
 
   const Menus = ["About Us"];
