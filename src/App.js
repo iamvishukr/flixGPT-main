@@ -5,7 +5,7 @@ import appStore from "./utils/appStore";
 function App() {
   return (
     <Provider store={appStore}>
-      <div className="">
+      <div className="-mt-24">
         <Body />
       </div>
     </Provider>

@@ -4,14 +4,13 @@ import logo from "../Images/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { auth } from "../utils/Firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 import { toggleSearchGPTview } from "../utils/searchGptSlice";
 import { SUPPORTED_LANG } from "../utils/Constants";
 import { changeLanguage } from "../utils/configSlice";
-import SearchGPT from "./SearchGPT";
 const Header = () => {
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
@@ -82,7 +81,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className=" md:px-36 md:mx-2 mx-0 w-screen bg-gradient-to-b md:mt-24 mt-5 pt-3 from-black absolute bg-transparent z-50 flex flex-col md:flex-row justify-between">
+    <div className=" md:px-36 md:mx-2 mx-0 w-screen  bg-gradient-to-b md:mt-24 pt-3 from-black absolute bg-transparent z-50 flex flex-col md:flex-row justify-between">
       <img src={logo} alt="logo" className="md:w-64 md:h-24 w-24 -translate-y-2 h-12" />
 
       {user && (
